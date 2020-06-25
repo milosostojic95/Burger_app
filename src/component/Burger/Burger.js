@@ -1,7 +1,6 @@
 import React from 'react';
 import classes from './Burger.module.css';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
-import { array } from 'prop-types';
 
 
 const burger = (props) => {
@@ -13,7 +12,7 @@ const burger = (props) => {
       return arr.concat(el);
     },[]
   );
-    console.log(transformIngrediants)
+
   if(transformIngrediants.length === 0) {
     transformIngrediants = <p>Please start adding ingredients</p>
   }
