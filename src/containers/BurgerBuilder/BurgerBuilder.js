@@ -33,6 +33,10 @@ class BurgerBuilder extends Component {
     this.setState({showModal: false});
   }
 
+  continueModalHeandler = () => {
+    alert('continuing')
+  }
+
   updatePurcaseState = (ingredients) => {
     const sum = Object.keys(ingredients).map((igKey) => {
       return ingredients[igKey];
@@ -85,7 +89,12 @@ class BurgerBuilder extends Component {
     return (
       <Aux>
         <Modal show = {this.state.showModal} modalClosed = {this.removeModalHeandler}>
-          <OrderSummary ingredients= {this.state.ingredients}/>
+          <OrderSummary
+            ingredients= {this.state.ingredients}
+            purchaseCanceled= {this.removeModalHeandler}
+            purchaseCantinued = {this.continueModalHeandler}
+            price= {this.state.totalPrice}
+          />
         </Modal>
         <Burger ingredients={this.state.ingredients} />
         <BuildControls
