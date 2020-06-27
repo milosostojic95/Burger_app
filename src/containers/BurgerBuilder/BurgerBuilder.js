@@ -26,7 +26,11 @@ class BurgerBuilder extends Component {
   }
 
   showModalHeandler = () => {
-    this.setState({showModal: true})
+    this.setState({showModal: true});
+  }
+
+  removeModalHeandler = () => {
+    this.setState({showModal: false});
   }
 
   updatePurcaseState = (ingredients) => {
@@ -80,7 +84,7 @@ class BurgerBuilder extends Component {
 
     return (
       <Aux>
-        <Modal show = {this.state.showModal}>
+        <Modal show = {this.state.showModal} modalClosed = {this.removeModalHeandler}>
           <OrderSummary ingredients= {this.state.ingredients}/>
         </Modal>
         <Burger ingredients={this.state.ingredients} />
