@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Aux from '../../hoc/Auxiliary';
+import Aux from '../../hoc/Auxiliary/Auxiliary';
 import Burger from '../../component//Burger/Burger';
 import BuildControls from '../../component/Burger/BuildControls/BuildControls';
 import Modal from '../../component/UI/Modal/Modal';
@@ -46,6 +46,7 @@ class BurgerBuilder extends Component {
     this.setState({purchaseable: sum > 0})
   }
 
+  //ading ingredient
   addIngredientHeandler = (type) => {
     const oldCount = this.state.ingredients[type];
     const updatedCounted = oldCount + 1;
@@ -59,7 +60,7 @@ class BurgerBuilder extends Component {
     this.setState({ingredients: updatedIngredients, totalPrice: newPrice});
     this.updatePurcaseState(updatedIngredients);
   }
-
+  //remove ingredient
   removeIngredientHeandler = (type) => {
     const oldCount = this.state.ingredients[type];
     if(oldCount <= 0) {
